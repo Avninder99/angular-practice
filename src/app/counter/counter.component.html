@@ -1,0 +1,15 @@
+<div class="d-flex flex-column">
+    <h1>Counter</h1>
+    <h2>{{ count$ | async }}</h2>
+    
+    <div class="mb-3">
+        <label for="exampleInput" class="form-label">Change By</label>
+        <input [(ngModel)]="changeBy" type="number" class="form-control" id="exampleInput">
+    </div>
+    
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-primary" (click)="decrement()">Decrement</button>
+        <button type="button" class="btn btn-outline-primary" (click)="resetCounter()">Reset</button>
+        <button type="button" class="btn btn-outline-primary" (click)="increment()">Increment</button>
+    </div>
+</div>

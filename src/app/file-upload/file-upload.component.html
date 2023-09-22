@@ -1,0 +1,25 @@
+<div class="container mt-5 pt-5">
+    <form [formGroup]="myUploadForm" (ngSubmit)="submitForm()">
+        <label 
+            class="form-label" 
+            for="customFile"
+        >
+            Image input example
+        </label>
+
+        <input 
+            type="file" 
+            class="form-control" 
+            id="customFile" 
+            formControlName="image" 
+            (change)="uploadFile($event)"
+        />
+
+        <input 
+            class="btn btn-primary btn-lg mt-3" 
+            type="submit" 
+            value="Upload" 
+            style="padding-left: 2.5rem; padding-right: 2.5rem;"
+        />
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div>
+    <app-entry></app-entry>
+
+    <ul class="list-group mt-3">
+        <li class="list-group-item" *ngFor="let entry of Entries$ | async; index as i">
+            <div class="container d-flex flex-row justify-content-between align-content-center">
+                <h4>{{ entry.desc }}</h4>
+                <div>
+                    <button (click)="toggleComplete(i)" class="btn btn-warning" *ngIf="entry.completed">Mark as Uncompleted</button>
+                    <button (click)="toggleComplete(i)" class="btn btn-success" *ngIf="!entry.completed">Mark as Completed</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
