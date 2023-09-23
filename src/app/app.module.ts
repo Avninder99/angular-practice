@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { counterReducer } from './store/counter.reducer';
 import { EntriesReducer } from './store/list.reducer';
+import { authReducer } from './store/auth.reducer';
 
 import { AppComponent } from './app.component';
 import { ListHolderComponent } from './list-holder/list-holder.component';
@@ -23,6 +24,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CookieService } from 'ngx-cookie-service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AnimatedBoxComponent } from './animated-box/animated-box.component';
+import { HiddenPageComponent } from './auth/hidden-page/hidden-page.component';
+import { HiddenAdminPageComponent } from './auth/hidden-admin-page/hidden-admin-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,9 @@ import { AnimatedBoxComponent } from './animated-box/animated-box.component';
     PostComponent,
     NotFoundComponent,
     FileUploadComponent,
-    AnimatedBoxComponent
+    AnimatedBoxComponent,
+    HiddenPageComponent,
+    HiddenAdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,8 @@ import { AnimatedBoxComponent } from './animated-box/animated-box.component';
     ReactiveFormsModule,
     StoreModule.forRoot({
       counter: counterReducer,
-      Entries: EntriesReducer
+      Entries: EntriesReducer,
+      auth: authReducer
     }, {}),
     HttpClientModule,
     BrowserAnimationsModule,

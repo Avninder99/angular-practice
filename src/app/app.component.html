@@ -15,10 +15,10 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="posts" routerLinkActive="active">Posts</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="auth/login" routerLinkActive="active">Login</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="auth/register" routerLinkActive="active">Register</a>
         </li>
         <li class="nav-item">
@@ -26,6 +26,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="animation" routerLinkActive="active">Box Animation</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="hidden" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Hidden</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="hidden/admin" routerLinkActive="active">Admin</a>
         </li>
       </ul>
     </div>

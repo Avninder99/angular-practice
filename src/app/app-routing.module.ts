@@ -12,6 +12,8 @@ import { PostComponent } from './posts/post/post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AnimatedBoxComponent } from './animated-box/animated-box.component';
+import { HiddenPageComponent } from './auth/hidden-page/hidden-page.component';
+import { HiddenAdminPageComponent } from './auth/hidden-admin-page/hidden-admin-page.component';
 
 const routes: Routes = [
   { 
@@ -34,6 +36,8 @@ const routes: Routes = [
           { path: 'register', component: RegisterComponent }
         ]  
       },
+      { path: 'hidden', component: HiddenPageComponent },
+      { path: 'hidden/admin', component: HiddenAdminPageComponent },
       { path: 'upload', component: FileUploadComponent },
       { path: 'animation', component: AnimatedBoxComponent },
       { path: '**', component: NotFoundComponent }
