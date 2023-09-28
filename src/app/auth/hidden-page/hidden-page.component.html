@@ -1,1 +1,42 @@
-<p>hidden-page works!</p>
+<div class="container">
+    <div class="my-5">
+        <label for="contentInput" class="form-label">Content</label>
+        <input [(ngModel)]="content" type="text" class="form-control my-2" id="contentInput">
+        <label for="typeInput" class="form-label">Type</label>
+        <input [(ngModel)]="type" type="text" class="form-control my-2" id="typeInput">
+    </div>
+    <button class="btn btn-primary me-3" (click)="addTask()">Add Task</button>
+</div>
+
+<div class="d-flex flex-column justify-center align-content-center">
+    <div class="d-flex flex-row flex-wrap container my-5">
+        <div class="list-holder">
+            <p>Incomplete Tasks</p>
+            <ul class="list-group mt-3">
+                <li class="list-group-item" *ngFor="let task of incompleteTasks; index as i">
+                    <div class="container d-flex flex-row justify-content-between align-content-center">
+                        <h4>{{ task.content }}</h4>
+                        <div>
+                            <button (click)="deleteTask(i, 'I')" class="btn btn-danger me-2">Delete</button>
+                            <button (click)="toggleComplete(i, 'I')" class="btn btn-success">Mark as Completed</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="list-holder">
+            <p>Complete Tasks</p>
+            <ul class="list-group mt-3">
+                <li class="list-group-item" *ngFor="let task of completeTasks; index as i">
+                    <div class="container d-flex flex-row justify-content-between align-content-center">
+                        <h4>{{ task.content }}</h4>
+                        <div>
+                            <button (click)="deleteTask(i, 'C')" class="btn btn-danger me-2">Delete</button>
+                            <button (click)="toggleComplete(i, 'C')" class="btn btn-warning">Mark as Incompleted</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

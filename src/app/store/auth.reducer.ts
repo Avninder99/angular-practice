@@ -12,16 +12,16 @@ export const authReducer = createReducer(
     on(setAuth, (state, action) => {
         let base64Url = action.token.split('.')[1];
         let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        let jsonPayload = JSON.parse(decodeURIComponent(window.atob(base64).split('').map(function(c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
+        }).join('')));
 
-        console.log(jsonPayload);
+        console.log("payload => ", jsonPayload);
 
         return {
             token: action.token,
-            isAdmin: false,
-            username: null
+            isAdmin: jsonPayload.role === 'admin',
+            username: jsonPayload.username
         };
     })
 )

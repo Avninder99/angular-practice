@@ -31,6 +31,9 @@ export class AppComponent {
       }else {
         this.isLoggedIn = false;
       }
+      if(res.isAdmin){
+        this.isAdmin = res.isAdmin;
+      }
     })
     
     if(this.token){
